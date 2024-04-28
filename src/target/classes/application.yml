@@ -1,0 +1,13 @@
+spring:
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+  freemarker:
+    cache: false
+  datasource:
+    url: jdbc:mysql://192.168.31.128:3306/shanxi?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
