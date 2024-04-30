@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigInteger;
+import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringbootApplication.class)
@@ -16,7 +17,12 @@ public class MyBatisIntegrationTest {
     private UserMapper userMapper;
     @Test
     public void testInsertUser(){
-       User user = new User(123456,"123456","jiaobaba");
+       User user = new User(1234567,"1234567","jiaobaba",new Date(),1,"管理员");
        userMapper.insertUser(user);
+    }
+    @Test
+    public void testSelectUserById(){
+        Object obj = userMapper.getUserById(1234567);
+        System.out.println(obj);
     }
 }

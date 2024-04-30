@@ -8,6 +8,6 @@ spring:
     cache: false
   datasource:
     url: jdbc:mysql://192.168.31.128:3306/shanxi?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
-    username: root
-    password: root
+    username: jiao
+    password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
