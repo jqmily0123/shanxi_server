@@ -1,10 +1,7 @@
 package com.shanxi.water.mapper;
 
 import com.shanxi.water.entity.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface UserMapper {
@@ -12,4 +9,8 @@ public interface UserMapper {
     void insertUser(User user);
     @Select("select * from user where id = #{id}")
     User getUserById(@Param("id") int id);
+    @Delete("DELETE FROM user WHERE id = #{id}")
+    void deleteUser(int id);
+    @Update("UPDATE user SET username = #{username}, password = #{password} WHERE id = #{id}")
+    void updateUser(User user);
 }

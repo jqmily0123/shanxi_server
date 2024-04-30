@@ -11,3 +11,15 @@ spring:
     username: jiao
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.31.128
+    port: 6379
+    password: 1234
+  data:
+    mongodb:
+      host: 192.168.31.128
+      port: 27017
+      database: shanxi
+      authentication-database: admin
+      username: admin
+      password: password
