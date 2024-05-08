@@ -9,10 +9,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 public class User {
-    private int id;
+    private String id;
     private String username;
     private String password;
-    private Date birthday;
-    private int gender;
-    private String job;
 }
