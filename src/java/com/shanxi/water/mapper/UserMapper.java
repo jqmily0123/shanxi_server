@@ -3,6 +3,8 @@ package com.shanxi.water.mapper;
 import com.shanxi.water.entity.User;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
     //插入用户信息
@@ -16,8 +18,11 @@ public interface UserMapper {
     User getUserByUsername(@Param("username") String username);
     //根据用户id删除用户
     @Delete("DELETE FROM user WHERE id = #{id}")
-    void deleteUser(int id);
+    void deleteUser(String id);
     //根据id修改用户信息
     @Update("UPDATE user SET username = #{username}, password = #{password} WHERE id = #{id}")
     void updateUser(User user);
+    //获取所有用户
+    @Select("SELECT id, username FROM user")
+    List<User> getUsers();
 }

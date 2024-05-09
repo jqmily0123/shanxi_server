@@ -26,4 +26,14 @@ public interface DeviceMapper {
             @Result(property = "cityName", column = "city_name")
     })
     List<DeviceInfo> findDevicesByCityName(String cityName);
+
+    //根据设备名称修改其他属性的方法
+    @Update("UPDATE device_info SET " +
+            "device_name = #{deviceName}, " +
+            "device_status = #{deviceStatus}, " +
+            "device_maintenance_status = #{deviceMaintenanceStatus} " +
+            "WHERE id = #{id}")
+    void updateDeviceInfoByDeviceId(DeviceInfo device);
+    @Delete("DELETE FROM device_info WHERE id = #{id}")
+    void deleteDeviceInfoById(@Param("id") String    id);
 }

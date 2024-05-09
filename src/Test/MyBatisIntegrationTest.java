@@ -8,10 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.UUID;
-import java.util.Random;
+import java.util.*;
 
 @RunWith(SpringRunner.class)  // 如果是 JUnit 4
 @SpringBootTest(classes = SpringbootApplication.class)
@@ -28,6 +25,10 @@ public class MyBatisIntegrationTest {
     private DeviceMapper deviceMapper;
     @Autowired
     private CityWaterEnergyConsumptionMapper cityWaterEnergyConsumptionMapper;
+    @Autowired
+    private PowerConsumeMapper powerConsumeMapper;
+    @Autowired
+    private HomePageSMapper homePageSMapper;
     @Test
     public void generateDeviceCount(){
         DeviceCount deviceCount = new DeviceCount();
@@ -148,5 +149,34 @@ public class MyBatisIntegrationTest {
                 cityWaterEnergyConsumptionMapper.insertCityWaterEnergyConsumption(cityWaterEnergyConsumption);
             }
         }
+    }
+
+    @Test
+    public void generatePowerConsume(){
+        ArrayList<String> equipments = new ArrayList<>(Arrays.asList("净水器", "增压器", "加热器", "过滤器", "电子阀门"));
+        for(String equipment : equipments){
+            PowerConsume powerConsume = new PowerConsume();
+            powerConsume.setPower(15+new Random().nextInt(15));
+            powerConsume.setEquipment(equipment);
+            powerConsume.setId(UUID.randomUUID().toString());
+            powerConsumeMapper.insertPowerConsume(powerConsume);
+        }
+    }
+
+    @Test
+    public void generateHomePageS(){
+        HomePageS homePageS = new HomePageS();
+        homePageS.setId(UUID.randomUUID().toString());
+
+        homePageS.setColdWaterVolume(0.65);
+        homePageS.setHotWaterVolume(0.85);
+
+        homePageS.setColdWaterTemperature(23);
+        homePageS.setHotWaterTemperature(95);
+
+        homePageS.setColdWaterPressure(3);
+        homePageS.setHotWaterPressure(2);
+
+        homePageSMapper.insertHomePageS(homePageS);
     }
 }

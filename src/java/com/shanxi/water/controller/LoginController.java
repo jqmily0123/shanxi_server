@@ -47,6 +47,6 @@ public class LoginController {
         } else if (!passwordUtils.comparePassword(user.getPassword(),loginUser.getPassword())) {
             return new BaseResponse(401, "用户名或者密码不正确");
         }
-        return new BaseResponse(200,"用户登陆成功");
+        return new BaseResponse(200,loginUser,"用户登陆成功");
     }
 }
