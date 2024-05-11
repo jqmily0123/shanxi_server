@@ -164,19 +164,20 @@ public class MyBatisIntegrationTest {
     }
 
     @Test
-    public void generateHomePageS(){
-        HomePageS homePageS = new HomePageS();
-        homePageS.setId(UUID.randomUUID().toString());
+        public void generateHomePageS(){
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            HomePageS homePageS = new HomePageS();
+            homePageS.setId(UUID.randomUUID().toString());
 
-        homePageS.setColdWaterVolume(0.65);
-        homePageS.setHotWaterVolume(0.85);
+            homePageS.setColdWaterVolume(0.65);
+            homePageS.setHotWaterVolume(0.85);
 
-        homePageS.setColdWaterTemperature(23);
-        homePageS.setHotWaterTemperature(95);
+            homePageS.setColdWaterTemperature(23);
+            homePageS.setHotWaterTemperature(95);
 
-        homePageS.setColdWaterPressure(3);
-        homePageS.setHotWaterPressure(2);
+            homePageS.setColdWaterPressure(3);
+            homePageS.setHotWaterPressure(2);
 
-        homePageSMapper.insertHomePageS(homePageS);
-    }
+            homePageSMapper.insertHomePageS(homePageS);
+        }
 }

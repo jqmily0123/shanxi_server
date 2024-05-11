@@ -13,18 +13,23 @@ public interface HomePageSMapper {
             "hot_water_temperature, " +
             "cold_water_temperature, " +
             "hot_water_pressure, " +
-            "cold_water_pressure) VALUES (" +
+            "cold_water_pressure" +
+            ") VALUES (" +
             "#{id}, " +
             "#{hotWaterVolume}, " +
             "#{coldWaterVolume}, " +
             "#{hotWaterTemperature}, " +
             "#{coldWaterTemperature}, " +
             "#{hotWaterPressure}, " +
-            "#{coldWaterPressure})")
+            "#{coldWaterPressure})"
+    )
     int insertHomePageS(HomePageS homePageS);
 
-    // 查询第一条 HomePageS 记录
-    @Select("SELECT id, hot_water_volume, cold_water_volume, hot_water_temperature, cold_water_temperature, hot_water_pressure, cold_water_pressure FROM home_page_s ORDER BY id ASC LIMIT 1")
+    // 随机查询第一条 HomePageS 记录
+    @Select("SELECT id, hot_water_volume, cold_water_volume, hot_water_temperature, cold_water_temperature, hot_water_pressure, cold_water_pressure " +
+            "FROM home_page_s " +
+            "ORDER BY RAND() " +
+            "LIMIT 1")
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "hotWaterVolume", column = "hot_water_volume"),
@@ -34,5 +39,5 @@ public interface HomePageSMapper {
             @Result(property = "hotWaterPressure", column = "hot_water_pressure"),
             @Result(property = "coldWaterPressure", column = "cold_water_pressure")
     })
-    HomePageS findFirstHomePageS();
+    HomePageS findRandomHomePageS();
 }
