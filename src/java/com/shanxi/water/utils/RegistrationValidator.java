@@ -14,6 +14,4 @@ public class RegistrationValidator {
         String regex = "^(?=.*[a-zA-Z])(?=.*\\d)[a-zA-Z\\d]{6,20}$";
         return Pattern.matches(regex, password);
     }
-
-
 }
