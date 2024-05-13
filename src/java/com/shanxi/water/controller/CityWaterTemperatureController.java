@@ -39,7 +39,6 @@ public class CityWaterTemperatureController {
         while (startDate.isBefore(LocalDate.now())) {
             if(startDate.isBefore(startDate.with(TemporalAdjusters.lastDayOfMonth()))){
                 CityWaterTemperature cityWaterTemperature = cityWaterTemperatureMapper.findByCityNameAndDate(ccityName,startDate);
-//                System.out.println(cityWaterTemperature);
                 list.add(cityWaterTemperature);
             }else{
                 int month = startDate.getMonthValue();
@@ -53,8 +52,8 @@ public class CityWaterTemperatureController {
                 double avgHotWater = numberOfDays > 0 ? totalHotWater / numberOfDays : 0;
                 double avgColdWater = numberOfDays > 0 ? totalColdWater / numberOfDays : 0;
                 HashMap<String, Number> avgData = new HashMap<>();
-                avgData.put("avgHotWaterTemperature", Double.parseDouble(String.format("%.2f", avgHotWater)));
-                avgData.put("avgColdWaterTemperature", Double.parseDouble(String.format("%.2f", avgColdWater)));
+                avgData.put("avgHotWaterConsume", Double.parseDouble(String.format("%.2f", avgHotWater)));
+                avgData.put("avgColdConsume", Double.parseDouble(String.format("%.2f", avgColdWater)));
                 avgData.put("month",month);
                 res.add(avgData);
                 list.clear();

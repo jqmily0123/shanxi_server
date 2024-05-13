@@ -49,8 +49,8 @@ public class CityWaterPressureController {
                 double avgHotWater = numberOfDays > 0 ? totalHotWater / numberOfDays : 0;
                 double avgColdWater = numberOfDays > 0 ? totalColdWater / numberOfDays : 0;
                 HashMap<String, Number> avgData = new HashMap<>();
-                avgData.put("avgHotWaterPressure", Double.parseDouble(String.format("%.2f", avgHotWater)));
-                avgData.put("avgColdWaterPressure", Double.parseDouble(String.format("%.2f", avgColdWater)));
+                avgData.put("avgHotWaterConsume", Double.parseDouble(String.format("%.2f", avgHotWater)));
+                avgData.put("avgColdConsume", Double.parseDouble(String.format("%.2f", avgColdWater)));
                 avgData.put("month",month);
                 res.add(avgData);
                 list.clear();
