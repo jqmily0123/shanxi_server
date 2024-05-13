@@ -10,11 +10,11 @@ public class DeviceCount {
     private String id;
     private int offlineDevicesCount;
     private int onlineDevicesCount;
-    private int shutdownDevicesCount;
+    private int defaultDevicesCount;
     private int warningDevicesCount;
     private int totalDevicesCount;
 
     public int getTotalDevicesCount() {
-        return offlineDevicesCount+onlineDevicesCount+shutdownDevicesCount+warningDevicesCount;
+        return offlineDevicesCount+onlineDevicesCount+defaultDevicesCount+warningDevicesCount;
     }
 }

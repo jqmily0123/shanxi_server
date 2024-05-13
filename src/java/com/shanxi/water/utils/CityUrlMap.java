@@ -19,7 +19,6 @@ public class CityUrlMap {
         cityMap.put("ankangshi", "安康市");
         cityMap.put("hanzhongshi", "汉中市");
         cityMap.put("shangluoshi", "商洛市");
-
         return cityMap.get(pinyin);
     }
 }

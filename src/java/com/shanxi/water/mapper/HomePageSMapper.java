@@ -40,4 +40,6 @@ public interface HomePageSMapper {
             @Result(property = "coldWaterPressure", column = "cold_water_pressure")
     })
     HomePageS findRandomHomePageS();
+
+
 }

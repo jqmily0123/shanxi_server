@@ -25,7 +25,6 @@ public class HomePageDataController {
     @GetMapping("/home")
     public HomePageData getHomePageData() {
         HomePageData homePageData = new HomePageData();
-        generateHomePageS();
         homePageData.setHomePageS(homePageSMapper.findRandomHomePageS());
         homePageData.setPowerConsumes(powerConsumeMapper.findAll());
         homePageData.setDeviceInfos(deviceMapper.findDevicesByCityName("西安市"));
